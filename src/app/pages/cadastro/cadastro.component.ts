@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LayoutLoginComponent } from "../../components/layout-login/layout-login.component";
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { LoginService } from '../../services/login.service';
 
 interface CadastroForm {
   username: FormControl;
@@ -18,7 +19,7 @@ interface CadastroForm {
 export class CadastroComponent {
   cadastroForm!: FormGroup<CadastroForm>;
 
-  constructor() {
+  constructor(private loginService: LoginService) {
     this.cadastroForm = new FormGroup({
       username: new FormControl('', []),
       email: new FormControl('', []),
@@ -27,7 +28,10 @@ export class CadastroComponent {
     });
   }
 
+  //TODO: validar se as senhas são iguais
+
   onSubmit() {
-    console.log(this.cadastroForm.value);
+    const values = this.cadastroForm.value;
+    this.loginService.cadastro(values.username, values.email, values.password);
   }
 }

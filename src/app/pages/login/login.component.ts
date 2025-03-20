@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LayoutLoginComponent } from "../../components/layout-login/layout-login.component";
 import { FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from '../../services/login.service';
 
 interface LoginForm {
   username: FormControl;
@@ -17,7 +18,7 @@ interface LoginForm {
 export class LoginComponent {
   loginForm!: FormGroup<LoginForm>;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private loginService: LoginService) {
     this.loginForm = new FormGroup({
       username: new FormControl('', []),
       password: new FormControl('', []),
@@ -25,7 +26,8 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    console.log(this.loginForm.value);
+    const values = this.loginForm.value;
+    this.loginService.entrar(values.username, values.password);
   }
 
   navigate() {
