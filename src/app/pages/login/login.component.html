@@ -1,0 +1,15 @@
+<app-layout-login>
+  <p>login works!</p>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h2>Login</h2>
+
+    <input type="username" formControlName="username" placeholder="Usuário" />
+    <input type="password" formControlName="password" placeholder="Senha" />
+
+    <button type="submit">Entrar</button>
+  </form>
+
+  <button type="button" (click)="navigate()">Cadastre-se</button>
+
+</app-layout-login>

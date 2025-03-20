@@ -19,6 +19,7 @@ Este projeto é pensado para ser usado junto com seu backend, chamado de [api-lo
 - Tela de cadastro de usuários comuns
 - CORS
 - CAPCHA
+- estilização com o angular matirial
 - Animação da resposta do formulario
 - Redirecionar o usuário depois do login/cadastro
 - Tela de confirmação de email
