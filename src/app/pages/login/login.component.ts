@@ -4,6 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { CommonModule } from '@angular/common';
+import { ApiResponse } from '../../types/api.response.interface';
 
 interface LoginForm {
   username: FormControl;
@@ -19,7 +20,7 @@ interface LoginForm {
 export class LoginComponent {
   loginForm!: FormGroup<LoginForm>;
 
-  loginResponse: any;
+  apiResponse?: ApiResponse;
 
   constructor(private router: Router, private loginService: LoginService) {
     this.loginForm = new FormGroup({
@@ -30,14 +31,13 @@ export class LoginComponent {
 
   onSubmit() {
     const values = this.loginForm.value;
+
     this.loginService.entrar(values.username, values.password).subscribe({
       next: (response) => {
-        console.log(response.timestamp)
-        this.loginResponse = response.message;
+        this.apiResponse = response;
       },
-      error: (err) => {
-        console.log(err.error?.timestamp);
-        this.loginResponse = err.error?.message || 'Ocorreu um erro desconhecido.';
+      error: (response) => {
+        this.apiResponse = response;
       },
     });
   }
