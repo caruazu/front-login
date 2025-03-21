@@ -1,0 +1,23 @@
+<app-layout-login>
+  <p>cadastro works!</p>
+
+  <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+    <h2>Cadastro</h2>
+
+    <input type="username"  formControlName="username"      placeholder="Usuário" />
+    <input type="email"     formControlName="email"         placeholder="Email"/>
+    <input type="password"  formControlName="password"      placeholder="Senha" />
+    <input type="password"  formControlName="passwordCheck" placeholder="Senha" />
+
+
+    <button type="submit">Entrar</button>
+
+  </form>
+
+  @if (apiResponse) {
+    <p>Message: {{ apiResponse.message }}</p>
+    <p>Data: {{ apiResponse.data }}</p>
+    <p>Timestamp: {{ apiResponse.timestamp }}</p>
+  }
+
+</app-layout-login>
