@@ -1,17 +1,10 @@
-<app-layout-login>
-  <p>cadastro works!</p>
-
+<app-layout-login [titulo]="titulo">
   <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
-    <h2>Cadastro</h2>
-
-    <input type="username"  formControlName="username"      placeholder="Usuário" />
-    <input type="email"     formControlName="email"         placeholder="Email"/>
-    <input type="password"  formControlName="password"      placeholder="Senha" />
-    <input type="password"  formControlName="passwordCheck" placeholder="Senha" />
-
-
-    <button type="submit">Entrar</button>
-
+    <mat-form-field><input matInput type="username" formControlName="username" placeholder="Usuário" /></mat-form-field>
+    <mat-form-field><input matInput type="email" formControlName="email" placeholder="Email" /></mat-form-field>
+    <mat-form-field><input matInput type="password" formControlName="password" placeholder="Senha" /></mat-form-field>
+    <mat-form-field><input matInput type="password" formControlName="passwordCheck" placeholder="Senha" /></mat-form-field>
+    <button mat-flat-button type="submit">Criar</button>
   </form>
 
   @if (apiResponse) {

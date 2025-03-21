@@ -1,20 +1,20 @@
-<app-layout-login>
-  <p>login works!</p>
-
+<app-layout-login [titulo]="titulo">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <h2>Entrar</h2>
-
-    <input type="username" formControlName="username" placeholder="Usuário" />
-    <input type="password" formControlName="password" placeholder="Senha" />
-
-    <button type="submit">Entrar</button>
+    <mat-form-field>
+      <input matInput type="username" formControlName="username" placeholder="Usuário" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" formControlName="password" placeholder="Senha" />
+    </mat-form-field>
+    <button mat-flat-button type="submit">Entrar</button>
   </form>
 
-  <button type="button" (click)="navigate()">Criar conta</button>
+  <button mat-button type="button" (click)="navigate()">Criar conta</button>
 
   @if (apiResponse) {
     <p>Message: {{ apiResponse.message }}</p>
     <p>Data: {{ apiResponse.data }}</p>
     <p>Timestamp: {{ apiResponse.timestamp }}</p>
   }
+
 </app-layout-login>
