@@ -12,10 +12,9 @@
 
   <button type="button" (click)="navigate()">Criar conta</button>
 
-  <div *ngIf="apiResponse">
+  @if (apiResponse) {
     <p>Message: {{ apiResponse.message }}</p>
     <p>Data: {{ apiResponse.data }}</p>
     <p>Timestamp: {{ apiResponse.timestamp }}</p>
-  </div>
-
+  }
 </app-layout-login>

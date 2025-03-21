@@ -9,7 +9,15 @@
     <input type="password"  formControlName="password"      placeholder="Senha" />
     <input type="password"  formControlName="passwordCheck" placeholder="Senha" />
 
+
     <button type="submit">Entrar</button>
 
   </form>
+
+  @if (apiResponse) {
+    <p>Message: {{ apiResponse.message }}</p>
+    <p>Data: {{ apiResponse.data }}</p>
+    <p>Timestamp: {{ apiResponse.timestamp }}</p>
+  }
+
 </app-layout-login>
