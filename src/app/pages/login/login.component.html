@@ -10,6 +10,13 @@
     <button type="submit">Entrar</button>
   </form>
 
+<!-- componente.html -->
+<div *ngIf="loginResponse">
+  <h2>Resposta da API</h2>
+  <pre>{{ loginResponse | json }}</pre>
+</div>
+
+
   <button type="button" (click)="navigate()">Criar conta</button>
 
 </app-layout-login>
