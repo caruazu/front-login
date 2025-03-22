@@ -12,22 +12,20 @@ Este projeto é pensado para ser usado junto com seu backend, chamado de [api-lo
 
 ### Implementado
 
+- Tela de login
+- Tela de cadastro de usuários comuns
 
 ### Para implementar
 
-- Tela de login
-- Tela de cadastro de usuários comuns
-- CORS
-- CAPCHA
-- estilização com o angular matirial
-- Animação da resposta do formulario
-- Redirecionar o usuário depois do login/cadastro
-- Tela de confirmação de email
-- Organização das mensagens de erro
-- botão prava visualizar a senha
-- Tempo de sessão e re-login automático
-- Tela de cadastro de usuários administradores
 - Telas restritas de acordo com o nível de usuário
 - Tela de mudança de senha
+- Tela de confirmação de email
+- Tela de cadastro de usuários administradores
+- CORS
+- CAPCHA
+- Animação da resposta do formulario
+- Organização das mensagens de erro
+- Botão prava visualizar a senha
+- Tempo de sessão e re-login automático
 - Login com o google
 

@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { CommonModule } from '@angular/common';
 import { ApiResponse } from '../../types/api.response.interface';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 interface LoginForm {
   username: FormControl;
@@ -13,13 +15,22 @@ interface LoginForm {
 
 @Component({
   selector: 'app-login',
-  imports: [LayoutLoginComponent, ReactiveFormsModule, CommonModule],
+  imports: [
+    LayoutLoginComponent,
+    ReactiveFormsModule,
+    CommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  loginForm!: FormGroup<LoginForm>;
+  titulo = 'Entrar';
+  botaoPrincipal = 'Entrar';
+  botaoSecundario = 'Criar conta';
 
+  loginForm!: FormGroup<LoginForm>;
   apiResponse?: ApiResponse;
 
   constructor(private router: Router, private loginService: LoginService) {
@@ -29,7 +40,7 @@ export class LoginComponent {
     });
   }
 
-  onSubmit() {
+  submit() {
     const values = this.loginForm.value;
 
     this.loginService.entrar(values.username, values.password).subscribe({

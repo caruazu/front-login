@@ -1,20 +1,19 @@
-<app-layout-login>
-  <p>login works!</p>
-
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <h2>Entrar</h2>
-
-    <input type="username" formControlName="username" placeholder="Usuário" />
-    <input type="password" formControlName="password" placeholder="Senha" />
-
-    <button type="submit">Entrar</button>
+<app-layout-login
+  [titulo]="titulo"
+  [botaoPrincipal]="botaoPrincipal"
+  [botaoSecundario]="botaoSecundario"
+  (submit)="submit()"
+  (navigate)="navigate()"
+>
+  <form [formGroup]="loginForm">
+    <mat-form-field><input matInput type="username" formControlName="username" placeholder="Usuário" /></mat-form-field>
+    <mat-form-field><input matInput type="password" formControlName="password" placeholder="Senha" /></mat-form-field>
   </form>
-
-  <button type="button" (click)="navigate()">Criar conta</button>
 
   @if (apiResponse) {
     <p>Message: {{ apiResponse.message }}</p>
     <p>Data: {{ apiResponse.data }}</p>
     <p>Timestamp: {{ apiResponse.timestamp }}</p>
   }
+
 </app-layout-login>
