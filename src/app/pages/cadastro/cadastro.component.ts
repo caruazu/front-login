@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { Router } from '@angular/router';
 
 interface CadastroForm {
   username: FormControl;
@@ -29,11 +30,14 @@ interface CadastroForm {
   styleUrl: './cadastro.component.scss',
 })
 export class CadastroComponent {
-  titulo: String = 'Cadastro';
+  titulo = 'Cadastro';
+  botaoPrincipal = 'Cadastrar';
+  botaoSecundario = 'Login';
+
   cadastroForm!: FormGroup<CadastroForm>;
   apiResponse?: ApiResponse;
 
-  constructor(private loginService: LoginService) {
+  constructor(private router: Router, private loginService: LoginService) {
     this.cadastroForm = new FormGroup({
       username: new FormControl('', []),
       email: new FormControl('', []),
@@ -44,7 +48,7 @@ export class CadastroComponent {
 
   //TODO: validar se as senhas são iguais
 
-  onSubmit() {
+  submit() {
     const values = this.cadastroForm.value;
     const role = 'USER';
     this.loginService
@@ -58,5 +62,9 @@ export class CadastroComponent {
           console.log(this.apiResponse?.data);
         },
       });
+  }
+
+  navigate() {
+    this.router.navigate(['login']);
   }
 }

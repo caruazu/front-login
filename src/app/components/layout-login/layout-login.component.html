@@ -4,5 +4,11 @@
       <mat-card-title class="title">{{titulo()}}</mat-card-title>
     </mat-card-header>
     <mat-card-content><ng-content></ng-content></mat-card-content>
+    <mat-card-actions>
+      @if(botaoSecundario()){
+        <button mat-button (click)="navigate()">{{botaoSecundario()}}</button>
+      }
+      <button mat-flat-button (click)="submit()">{{botaoPrincipal()}}</button>
+    </mat-card-actions>
   </mat-card>
 </div>

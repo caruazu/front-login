@@ -1,15 +1,14 @@
-<app-layout-login [titulo]="titulo">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <mat-form-field>
-      <input matInput type="username" formControlName="username" placeholder="Usuário" />
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput type="password" formControlName="password" placeholder="Senha" />
-    </mat-form-field>
-    <button mat-flat-button type="submit">Entrar</button>
+<app-layout-login
+  [titulo]="titulo"
+  [botaoPrincipal]="botaoPrincipal"
+  [botaoSecundario]="botaoSecundario"
+  (submit)="submit()"
+  (navigate)="navigate()"
+>
+  <form [formGroup]="loginForm">
+    <mat-form-field><input matInput type="username" formControlName="username" placeholder="Usuário" /></mat-form-field>
+    <mat-form-field><input matInput type="password" formControlName="password" placeholder="Senha" /></mat-form-field>
   </form>
-
-  <button mat-button type="button" (click)="navigate()">Criar conta</button>
 
   @if (apiResponse) {
     <p>Message: {{ apiResponse.message }}</p>

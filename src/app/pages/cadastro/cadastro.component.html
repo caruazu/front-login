@@ -1,10 +1,15 @@
-<app-layout-login [titulo]="titulo">
-  <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+<app-layout-login
+  [titulo]="titulo"
+  [botaoPrincipal]="botaoPrincipal"
+  [botaoSecundario]="botaoSecundario"
+  (submit)="submit()"
+  (navigate)="navigate()"
+>
+  <form [formGroup]="cadastroForm">
     <mat-form-field><input matInput type="username" formControlName="username" placeholder="Usuário" /></mat-form-field>
     <mat-form-field><input matInput type="email" formControlName="email" placeholder="Email" /></mat-form-field>
     <mat-form-field><input matInput type="password" formControlName="password" placeholder="Senha" /></mat-form-field>
     <mat-form-field><input matInput type="password" formControlName="passwordCheck" placeholder="Senha" /></mat-form-field>
-    <button mat-flat-button type="submit">Criar</button>
   </form>
 
   @if (apiResponse) {
