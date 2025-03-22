@@ -56,6 +56,7 @@ export class CadastroComponent {
       .subscribe({
         next: (response) => {
           this.apiResponse = response;
+          console.log('Cadastrado');
         },
         error: (response) => {
           this.apiResponse = response;
